@@ -80,7 +80,7 @@ public class StudentController {
         }
     }
 
-    @GetMapping("/listareversa")
+    @GetMapping("listareversa")
     public List<Student> getReverseList() {
         List<Student> studentList = studentService.findAll();
         return studentList.stream().sorted((a1, a2) -> (int)(Period.between(a1.getBirthday(), LocalDate.now()).getYears() -
@@ -89,5 +89,45 @@ public class StudentController {
     }
 
     //Completar
+    @GetMapping("calcularedadpromedio")
+    public int calcularEdadPromedio(){
+        return studentService.calcularEdadPromedio();
+    }
+
+    @GetMapping("sumaredades")
+    public int sumarEdades(){
+        return studentService.sumarEdades();
+    }
+
+    @GetMapping("edadmasgrande")
+    public int edadMasGrande(){
+        return studentService.edadMasGrande();
+    }
+
+    @GetMapping("edadmaschica")
+    public int edadMasChica(){
+        return studentService.edadMasChica();
+    }
+
+    @GetMapping("nombresestudiantes")
+    public String nombresEstudiantes(){
+        return studentService.nombresEstudiantes();
+    }
+
+    @GetMapping("listarMayoresConC")
+    public List<Student> listarMayoresConC(){
+       return studentService.listarMayoresConC();
+    }
+
+    @GetMapping("listarMenoresConS")
+    public List<Student> listarMenoresConS(){
+        return studentService.listarMenoresConS();
+    }
+
+    @GetMapping("listar3ConMasEdad")
+    public List<Student> listar3ConMasEdad(){
+        return studentService.listar3ConMasEdad();
+
+    }
 
 }
